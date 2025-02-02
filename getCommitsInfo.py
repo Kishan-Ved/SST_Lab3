@@ -52,19 +52,11 @@ for it in range(len(commits)):
 
     m2 = commit2.modified_files[it2]
     diff_h = m2.diff
-    # for m in commit2.modified_files:
 
     if diff_h == diff_m:
         rows.append([m.old_path, m.new_path, commit.hash, commit.parents[0], commit.msg, diff_m, diff_h, 'True'])
     else:
         rows.append([m.old_path, m.new_path, commit.hash, commit.parents[0], commit.msg, diff_m, diff_h, 'False'])
-
-    # rows.append([m.old_path, m.new_path, commit.hash, commit.parents[0], commit.msg, diff_m, diff_h])
-        
-#   if (i>=1):   
-#     rows.append([m.old_path, m.new_path, commit.hash, commit.parents[0], commit.msg, diff_m, diff_h])
-#   elif (i==0):
-#     rows.append([m.old_path, m.new_path, commit.hash, commit.parents[0], commit.msg, '', ''])
        
 with open(sys.argv[1]+'_results/commits_info.csv', 'a') as csvFile:
   writer = csv.writer(csvFile)

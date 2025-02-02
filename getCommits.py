@@ -6,7 +6,6 @@ commit_reverse=[]
 for commit in Repository(sys.argv[1],only_no_merge=True,order='reverse').traverse_commits():
   if (commit.in_main_branch==True):
     count=count+1
-    #print(commit.hash)
     commit_reverse.append(commit.hash)
     if count == last_n:
       break
